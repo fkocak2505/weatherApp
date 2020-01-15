@@ -33,9 +33,8 @@ class SelectCityActivityViewImpl : AppCompatActivity() {
         recyclerViewSearchCity.adapter =
             SelectCityRecyclerViewAdapter(getCityData()) {
                 WeatherLoggerSingletonPattern.instance.setCityId(it.cityId)
-                sharedPrefs.edit().remove(WeatherLoggerConstant.CURRENT_WEATHER)
-                sharedPrefs.edit().remove(WeatherLoggerConstant.FORECAST_WEATHER)
-                sharedPrefs.edit().commit()
+                sharedPrefs.edit().remove(WeatherLoggerConstant.CURRENT_WEATHER).apply()
+                sharedPrefs.edit().remove(WeatherLoggerConstant.FORECAST_WEATHER).apply()
                 WeatherLoggerSingletonPattern.instance.setResponse4Forecast("")
                 WeatherLoggerSingletonPattern.instance.setResponse4WeatherData("")
 
